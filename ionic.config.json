@@ -1,0 +1,7 @@
+{
+  "name": "recomusic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
