@@ -1,27 +1,38 @@
 #container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+h1 {
   text-align: center;
+  padding: 2rem;
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  font-size: 32px;
+  font-weight: bold;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+hr {
+   background-color: #c5c5c5;
+   width: 100%;
 }
 
-#container p {
+h2 {
+  text-align: center;
+  padding: 1rem;
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+p {
+  width: 40%;
+
   font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+  font-weight: lighter;
 }
 
-#container a {
-  text-decoration: none;
+ion-button {
+  color: white;
 }
