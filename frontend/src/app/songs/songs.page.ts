@@ -14,7 +14,7 @@ export class SongsPage implements OnInit {
   editMode = false;
   newSong: Song = {
     title: '',
-    artist: ''
+    artist: '',
   };
   currentSongId: any;
 
@@ -29,11 +29,14 @@ export class SongsPage implements OnInit {
   }
 
   getAllSongs() {
-    this.songService.getSongs().subscribe((response) => {
-      this.songs = response;
-    }, (error) => {
-      console.error('Error fetching songs:', error);
-    });
+    this.songService.getSongs().subscribe(
+      (response) => {
+        this.songs = response;
+      },
+      (error) => {
+        console.error('Error fetching songs:', error);
+      }
+    );
   }
 
   openModal() {
@@ -47,18 +50,21 @@ export class SongsPage implements OnInit {
     this.currentSongId = null;
     this.newSong = {
       title: '',
-      artist: ''
+      artist: '',
     };
   }
 
   createSong() {
     if (this.newSong.title && this.newSong.artist) {
-      this.songService.createSong(this.newSong).subscribe(() => {
-        this.getAllSongs();
-        this.closeModal();
-      }, (error) => {
-        console.error('Error creating song:', error);
-      });
+      this.songService.createSong(this.newSong).subscribe(
+        () => {
+          this.getAllSongs();
+          this.closeModal();
+        },
+        (error) => {
+          console.error('Error creating song:', error);
+        }
+      );
     }
   }
 
@@ -67,19 +73,22 @@ export class SongsPage implements OnInit {
     this.currentSongId = song.id;
     this.newSong = {
       title: song.title,
-      artist: song.artist
+      artist: song.artist,
     };
     this.isModalOpen = true;
   }
 
   updateSong() {
     if (this.newSong.title && this.newSong.artist) {
-      this.songService.updateSong(this.currentSongId, this.newSong).subscribe(() => {
-        this.getAllSongs();
-        this.closeModal();
-      }, (error) => {
-        console.error('Error updating song:', error);
-      });
+      this.songService.updateSong(this.currentSongId, this.newSong).subscribe(
+        () => {
+          this.getAllSongs();
+          this.closeModal();
+        },
+        (error) => {
+          console.error('Error updating song:', error);
+        }
+      );
     }
   }
 
@@ -90,26 +99,29 @@ export class SongsPage implements OnInit {
       buttons: [
         {
           text: 'Cancel',
-          role: 'cancel'
+          role: 'cancel',
         },
         {
           text: 'Delete',
           role: 'destructive',
           handler: () => {
             this.deleteSong(song.id);
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
     await alert.present();
   }
 
   deleteSong(id: number) {
-    this.songService.deleteSong(id).subscribe(() => {
-      this.getAllSongs();
-    }, (error) => {
-      console.error('Error deleting song:', error);
-    });
+    this.songService.deleteSong(id).subscribe(
+      () => {
+        this.getAllSongs();
+      },
+      (error) => {
+        console.error('Error deleting song:', error);
+      }
+    );
   }
 
   goToHome() {
