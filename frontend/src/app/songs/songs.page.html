@@ -1,7 +1,6 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <ion-list>
-      <!-- Add Song Card -->
       <ion-card class="add-card" (click)="openModal()">
         <ion-card-header>
           <ion-card-title>
@@ -11,7 +10,6 @@
         </ion-card-header>
       </ion-card>
 
-      <!-- Song Cards -->
       <ion-card *ngFor="let song of songs">
         <ion-card-header>
           <ion-card-title>{{song.title}}</ion-card-title>
@@ -24,7 +22,6 @@
     </div>
   </div>
 
-  <!-- Add Song Modal -->
   <ion-modal [isOpen]="isModalOpen">
     <ng-template>
       <ion-header>
