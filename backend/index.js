@@ -10,11 +10,15 @@ app.get("/", (req, res) => {
 
 const db = require("./models");
 
-// db.sequelize.sync({ force: true }).then(() => {
-//   console.log("Dropped and resynced database");
-// });
+db.sequelize.sync().then(() => {
+  console.log("Database synchronized");
+}).catch(err => {
+  console.error("Failed to sync database:", err);
+});
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+require("./routes/song.routes")(app);

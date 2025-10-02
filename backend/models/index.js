@@ -1,9 +1,8 @@
 const dbConfig = require("../config/db.config");
-const Sequelize = requite("sequelize");
+const Sequelize = require("sequelize");
 const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
   host: dbConfig.HOST,
   dialect: dbConfig.dialect,
-  operatorAlisases: false,
   pool: {
     max: dbConfig.pool.max,
     min: dbConfig.pool.min,
@@ -17,4 +16,6 @@ const db = {};
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
-db.song = require("./song.model.js")
+db.song = require("./song.model.js")(sequelize, Sequelize);
+
+module.exports = db;
