@@ -37,18 +37,18 @@ exports.findAll = (req, res) => {
 exports.findOne = (req, res) => {
   const id = req.params.id;
   Song.findByPk(id)
-    .then(data => {
+    .then((data) => {
       if (data) {
         res.send(data);
       } else {
         res.status(404).send({
-          message: `Song with id=${id} was not found`
+          message: `Song with id=${id} was not found`,
         });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
-        message: `Error retrieving Song with id=${id}`
+        message: `Error retrieving Song with id=${id}`,
       });
     });
 };
@@ -56,22 +56,22 @@ exports.findOne = (req, res) => {
 exports.update = (req, res) => {
   const id = req.params.id;
   Song.update(req.body, {
-    where: { id: id }
+    where: { id: id },
   })
-    .then(num => {
+    .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Song was updated successfully."
+          message: "Song was updated successfully.",
         });
       } else {
         res.send({
-          message: `Cannot update Song with id=${id}. Maybe Song was not found or req.body is empty!`
+          message: `Cannot update Song with id=${id}. Maybe Song was not found or req.body is empty!`,
         });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
-        message: `Error updating Song with id=${id}`
+        message: `Error updating Song with id=${id}`,
       });
     });
 };
@@ -79,22 +79,22 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
   const id = req.params.id;
   Song.destroy({
-    where: { id: id }
+    where: { id: id },
   })
-    .then(num => {
+    .then((num) => {
       if (num == 1) {
         res.send({
-          message: "Song was deleted successfully!"
+          message: "Song was deleted successfully!",
         });
       } else {
         res.send({
-          message: `Cannot delete Song with id=${id}. Maybe Song was not found!`
+          message: `Cannot delete Song with id=${id}. Maybe Song was not found!`,
         });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
-        message: `Could not delete Song with id=${id}`
+        message: `Could not delete Song with id=${id}`,
       });
     });
 };

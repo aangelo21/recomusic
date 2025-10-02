@@ -8,7 +8,6 @@ import { NavController } from '@ionic/angular';
   standalone: false,
 })
 export class HomePage {
-
   constructor(public navCtrl: NavController) {}
 
   goToSongs() {

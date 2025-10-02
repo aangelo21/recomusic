@@ -3,7 +3,7 @@ const app = express();
 const cors = require("cors");
 
 const corsOptions = {
-  origin: "http://localhost:8100"
+  origin: "http://localhost:8100",
 };
 
 app.use(cors(corsOptions));
@@ -16,11 +16,14 @@ app.get("/", (req, res) => {
 
 const db = require("./models");
 
-db.sequelize.sync().then(() => {
-  console.log("Database synchronized");
-}).catch(err => {
-  console.error("Failed to sync database:", err);
-});
+db.sequelize
+  .sync()
+  .then(() => {
+    console.log("Database synchronized");
+  })
+  .catch((err) => {
+    console.error("Failed to sync database:", err);
+  });
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {

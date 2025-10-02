@@ -24,7 +24,12 @@
             <ion-button fill="clear" size="small" (click)="openEditModal(song)">
               <ion-icon name="create-outline" slot="icon-only"></ion-icon>
             </ion-button>
-            <ion-button fill="clear" color="danger" size="small" (click)="confirmDelete(song)">
+            <ion-button
+              fill="clear"
+              color="danger"
+              size="small"
+              (click)="confirmDelete(song)"
+            >
               <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
             </ion-button>
           </div>
@@ -49,13 +54,24 @@
       <ion-content class="ion-padding">
         <ion-item>
           <ion-label position="stacked">Title</ion-label>
-          <ion-input [(ngModel)]="newSong.title" placeholder="Enter song title"></ion-input>
+          <ion-input
+            [(ngModel)]="newSong.title"
+            placeholder="Enter song title"
+          ></ion-input>
         </ion-item>
         <ion-item>
           <ion-label position="stacked">Artist</ion-label>
-          <ion-input [(ngModel)]="newSong.artist" placeholder="Enter artist name"></ion-input>
+          <ion-input
+            [(ngModel)]="newSong.artist"
+            placeholder="Enter artist name"
+          ></ion-input>
         </ion-item>
-        <ion-button expand="block" class="ion-margin-top" (click)="editMode ? updateSong() : createSong()" [disabled]="!newSong.title || !newSong.artist">
+        <ion-button
+          expand="block"
+          class="ion-margin-top"
+          (click)="editMode ? updateSong() : createSong()"
+          [disabled]="!newSong.title || !newSong.artist"
+        >
           {{ editMode ? 'Update Song' : 'Save Song' }}
         </ion-button>
       </ion-content>

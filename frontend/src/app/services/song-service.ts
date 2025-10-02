@@ -7,27 +7,26 @@ export interface Song {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SongService {
-  
-  endpoint = "http://localhost:8080/api/songs"
+  endpoint = 'http://localhost:8080/api/songs';
 
   constructor(private httpClient: HttpClient) {}
 
   getSongs() {
-    return this.httpClient.get(this.endpoint)
+    return this.httpClient.get(this.endpoint);
   }
 
   createSong(song: Song) {
-    return this.httpClient.post(this.endpoint, song)
+    return this.httpClient.post(this.endpoint, song);
   }
 
   updateSong(id: number, song: Song) {
-    return this.httpClient.put(`${this.endpoint}/${id}`, song)
+    return this.httpClient.put(`${this.endpoint}/${id}`, song);
   }
 
   deleteSong(id: number) {
-    return this.httpClient.delete(`${this.endpoint}/${id}`)
+    return this.httpClient.delete(`${this.endpoint}/${id}`);
   }
 }
