@@ -1,5 +1,9 @@
 <ion-content [fullscreen]="true">
   <div id="container">
+    <ion-button shape="round" (click)="goToHome()" class="home-button">
+      <ion-icon name="home-outline" slot="start"></ion-icon>
+      Return to Home
+    </ion-button>
     <ion-list>
       <ion-card class="add-card" (click)="openModal()">
         <ion-card-header>

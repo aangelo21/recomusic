@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, NavController } from '@ionic/angular';
 import { SongService, Song } from '../services/song-service';
 
 @Component({
@@ -20,7 +20,8 @@ export class SongsPage implements OnInit {
 
   constructor(
     private songService: SongService,
-    private alertController: AlertController
+    private alertController: AlertController,
+    private navCtrl: NavController
   ) {}
 
   ngOnInit() {
@@ -109,5 +110,9 @@ export class SongsPage implements OnInit {
     }, (error) => {
       console.error('Error deleting song:', error);
     });
+  }
+
+  goToHome() {
+    this.navCtrl.navigateBack('/home');
   }
 }

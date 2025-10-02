@@ -12,6 +12,23 @@ ion-content {
   }
 }
 
+.home-button {
+  align-self: flex-start;
+  margin: 0 0 1rem;
+  --padding-start: 1rem;
+  --padding-end: 1.5rem;
+
+  ion-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 599px) {
+    width: 100%;
+    margin-bottom: 0.75rem;
+  }
+}
+
 ion-list {
   display: flex;
   flex-flow: row wrap;
