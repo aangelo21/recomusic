@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class AppComponent {
-  constructor() {}
+  constructor() {
+    // Force dark mode
+    document.body.classList.add('dark');
+  }
 }

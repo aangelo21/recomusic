@@ -1,0 +1,131 @@
+ion-content {
+  --background: var(--ion-background-color);
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+
+  @media (min-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+ion-list {
+  display: flex;
+  flex-flow: row wrap;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  gap: 0.5rem;
+  justify-content: left;
+
+  @media (min-width: 768px) {
+    gap: 1rem;
+  }
+}
+
+.add-card {
+  border: 2px dashed var(--ion-color-medium);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  ion-card-header {
+    text-align: center;
+  }
+
+  ion-card-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--ion-color-medium);
+    
+    ion-icon {
+      font-size: 24px;
+    }
+  }
+
+  &:hover {
+    border-color: var(--ion-color-primary);
+    ion-card-title {
+      color: var(--ion-color-primary);
+    }
+  }
+}
+
+ion-card {
+  --background: var(--ion-card-background);
+  width: calc(100% - 0.5rem); // Full width on mobile
+  margin: 0;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 12px;
+  overflow: hidden;
+  
+  // Tablet (2 columns)
+  @media (min-width: 600px) {
+    width: calc(50% - 0.5rem);
+  }
+  
+  // Small desktop (3 columns)
+  @media (min-width: 900px) {
+    width: calc(33.333% - 1rem);
+  }
+  
+  // Medium desktop (4 columns)
+  @media (min-width: 1200px) {
+    width: calc(25% - 1rem);
+  }
+  
+  // Large desktop (5 columns)
+  @media (min-width: 1500px) {
+    width: calc(20% - 1rem);
+  }
+
+  &:hover {
+    @media (hover: hover) {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+    }
+  }
+
+  ion-card-header {
+    padding: 1rem;
+
+    ion-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--ion-color-primary);
+      
+      @media (min-width: 768px) {
+        font-size: 1.1rem;
+      }
+    }
+
+    ion-card-subtitle {
+      font-size: 0.85rem;
+      opacity: 0.8;
+      margin: 0;
+      
+      @media (min-width: 768px) {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+// Touch device optimizations
+@media (hover: none) {
+  ion-card {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    
+    &:active {
+      transform: scale(0.98);
+      transition: transform 0.1s;
+    }
+  }
+}

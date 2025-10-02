@@ -1,15 +1,53 @@
 <ion-content [fullscreen]="true">
   <div id="container">
     <ion-list>
-      <ion-item *ngFor="let song of songs">
-        <ion-label>
-          <h2>{{song.title}}</h2>
-          <p>{{song.artist}}</p>
-        </ion-label>
-      </ion-item>
+      <!-- Add Song Card -->
+      <ion-card class="add-card" (click)="openModal()">
+        <ion-card-header>
+          <ion-card-title>
+            <ion-icon name="add-circle-outline"></ion-icon>
+            Add New Song
+          </ion-card-title>
+        </ion-card-header>
+      </ion-card>
+
+      <!-- Song Cards -->
+      <ion-card *ngFor="let song of songs">
+        <ion-card-header>
+          <ion-card-title>{{song.title}}</ion-card-title>
+          <ion-card-subtitle>{{song.artist}}</ion-card-subtitle>
+        </ion-card-header>
+      </ion-card>
     </ion-list>
     <div *ngIf="songs.length === 0">
       <p>No songs available</p>
     </div>
   </div>
+
+  <!-- Add Song Modal -->
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Add New Song</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="closeModal()">Close</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-item>
+          <ion-label position="stacked">Title</ion-label>
+          <ion-input [(ngModel)]="newSong.title" placeholder="Enter song title"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Artist</ion-label>
+          <ion-input [(ngModel)]="newSong.artist" placeholder="Enter artist name"></ion-input>
+        </ion-item>
+        <ion-button expand="block" class="ion-margin-top" (click)="createSong()" [disabled]="!newSong.title || !newSong.artist">
+          Save Song
+        </ion-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>
