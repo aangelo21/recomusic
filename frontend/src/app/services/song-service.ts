@@ -22,4 +22,12 @@ export class SongService {
   createSong(song: Song) {
     return this.httpClient.post(this.endpoint, song)
   }
+
+  updateSong(id: number, song: Song) {
+    return this.httpClient.put(`${this.endpoint}/${id}`, song)
+  }
+
+  deleteSong(id: number) {
+    return this.httpClient.delete(`${this.endpoint}/${id}`)
+  }
 }

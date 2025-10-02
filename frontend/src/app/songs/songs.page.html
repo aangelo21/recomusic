@@ -15,6 +15,16 @@
           <ion-card-title>{{song.title}}</ion-card-title>
           <ion-card-subtitle>{{song.artist}}</ion-card-subtitle>
         </ion-card-header>
+        <ion-card-content>
+          <div class="action-buttons">
+            <ion-button fill="clear" size="small" (click)="openEditModal(song)">
+              <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+            <ion-button fill="clear" color="danger" size="small" (click)="confirmDelete(song)">
+              <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card-content>
       </ion-card>
     </ion-list>
     <div *ngIf="songs.length === 0">
@@ -26,7 +36,7 @@
     <ng-template>
       <ion-header>
         <ion-toolbar>
-          <ion-title>Add New Song</ion-title>
+          <ion-title>{{ editMode ? 'Edit Song' : 'Add New Song' }}</ion-title>
           <ion-buttons slot="end">
             <ion-button (click)="closeModal()">Close</ion-button>
           </ion-buttons>
@@ -41,8 +51,8 @@
           <ion-label position="stacked">Artist</ion-label>
           <ion-input [(ngModel)]="newSong.artist" placeholder="Enter artist name"></ion-input>
         </ion-item>
-        <ion-button expand="block" class="ion-margin-top" (click)="createSong()" [disabled]="!newSong.title || !newSong.artist">
-          Save Song
+        <ion-button expand="block" class="ion-margin-top" (click)="editMode ? updateSong() : createSong()" [disabled]="!newSong.title || !newSong.artist">
+          {{ editMode ? 'Update Song' : 'Save Song' }}
         </ion-button>
       </ion-content>
     </ng-template>

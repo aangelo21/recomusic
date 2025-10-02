@@ -119,6 +119,32 @@ ion-card {
       }
     }
   }
+
+  ion-card-content {
+    padding: 0;
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    padding: 0.5rem;
+    background: rgba(var(--ion-color-dark-rgb), 0.05);
+
+    ion-button {
+      min-width: 2.5rem;
+      height: 2.5rem;
+      margin: 0;
+
+      ion-icon {
+        font-size: 1.1rem;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
 }
 
 @media (hover: none) {
