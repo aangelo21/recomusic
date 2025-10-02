@@ -110,6 +110,10 @@ cd backend
 npm test
 ```
 
+## Postman documentation
+
+If you are interested into knowing how the API works, check the following link to the postman documentation https://documenter.getpostman.com/view/48535775/2sB3QGtB9w
+
 ## Contributing
 
 1. Fork the repository
@@ -124,6 +128,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 
-Your Name - aangelo21
+Angelo - aangelo21
 
 Project Link: [https://github.com/aangelo21/recomusic](https://github.com/aangelo21/recomusic)
