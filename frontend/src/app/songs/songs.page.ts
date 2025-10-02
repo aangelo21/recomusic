@@ -18,7 +18,11 @@ export class SongsPage implements OnInit {
 
   getAllSongs() {
     this.songService.getSongs().subscribe((response) => {
+      console.log('Response from API:', response);
       this.songs = response;
+      console.log('Songs array after assignment:', this.songs);
+    }, (error) => {
+      console.error('Error fetching songs:', error);
     });
   }
 }

@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
-const cors = requre("cors")
+const cors = require("cors");
 
 const corsOptions = {
   origin: "http://localhost:8100"
-}
+};
 
-app.use(cors(corsOptions))
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
