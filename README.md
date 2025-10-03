@@ -78,10 +78,15 @@ npm install
 
 4. Start the server:
 ```bash
-npm start
+node index.js
 ```
 
 The API will be available at `http://localhost:8080` (or your configured port)
+
+## .env
+
+It's fundamental to create a .env in the backend folder with the desired configuration of the database.
+Check /backend/config/db.config.js to know what you should put into your .env
 
 ## Features
 
