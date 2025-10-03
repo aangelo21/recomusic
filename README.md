@@ -68,7 +68,15 @@ cd backend
 npm install
 ```
 
-3. Start the server:
+3. Configure environment variables:
+   - Copy the `.env.example` file to a new file named `.env`
+   - Update the values in `.env` with your database configuration:
+     ```bash
+     cp .env.example .env
+     ```
+   - Edit the `.env` file with your specific database configuration
+
+4. Start the server:
 ```bash
 npm start
 ```
@@ -94,7 +102,8 @@ The API will be available at `http://localhost:8080` (or your configured port)
 ### Backend
 - Node.js
 - Express.js
-- MongoDB (assumed based on project structure)
+- MySQL (with Sequelize ORM)
+- dotenv for environment configuration
 
 ## Testing
 
